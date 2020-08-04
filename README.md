@@ -20,7 +20,9 @@
 * 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns
 
 ## 用法
-Fork 到自己的账号下，编辑文件 `CHANGELOG.md` 即可触发编译动作。
+* Fork 到自己的账号下
+* 进入 Actions 界面，启用 Github Actions (**必须要先启用**)
+* 编辑文件 `CHANGELOG.md` 即可触发编译动作。
 
 ## 注意
 产品发布初期，官方代码每天都在变，遇到无法编译时，请前往[上游Repo](https://github.com/soffchen/NanoPi-R2S)查看 `.yml` 与 `config` 最新异动。
