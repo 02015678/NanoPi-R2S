@@ -1,3 +1,9 @@
+## 20200804
+* fork from [https://github.com/soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)
+* add extra packages luci-app-smartdns luci-app-advancedsetting luci-app-aliddns luci-app-eqos luci-app-passwall
+* change self-hosted to ubuntu-latest
+* remove custom theme
+
 ## 20200723
 * Docker
 
