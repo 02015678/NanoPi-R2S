@@ -9,7 +9,7 @@ jobs:
 
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
 
@@ -54,7 +54,8 @@ jobs:
           cp -r ../lede/package/lean package/
           sed -i 's/^src-git luci.*/src-git luci https:\/\/github.com\/coolsnowwolf\/luci/' feeds.conf.default
           sed -i 's/^src-git packages.*/src-git packages https:\/\/github.com\/coolsnowwolf\/packages/' feeds.conf.default
-
+          echo "src-git small https://github.com/kenzok8/small" >> feeds.conf.default
+          
       - name: Install Extra Packages
         run: |
           cd friendlywrt-rk3328/friendlywrt/package
@@ -67,9 +68,6 @@ jobs:
           git clone https://github.com/fw876/helloworld
           mv helloworld/luci-app-ssr-plus/ .
           rm -rf helloworld/
-
-          rm -rf lean/luci-theme-argon
-          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
 
           git clone -b master https://github.com/vernesong/OpenClash
           mv OpenClash/luci-app-openclash/ .
@@ -85,7 +83,11 @@ jobs:
           mv openwrt smartdns
           rm -rf smartdns1
           
-          cp -r ../../../package/luci-app-smartdns .
+          git clone https://github.com/kenzok8/openwrt-packages
+          cd openwrt-packages
+          mv luci-app-smartdns luci-app-advancedsetting luci-app-aliddns luci-app-eqos luci-app-passwall ../
+          cd ../
+          rm -rf openwrt-packages
           
       - name: Install Clash Binaries
         run: |
