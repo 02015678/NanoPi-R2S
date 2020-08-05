@@ -1,8 +1,13 @@
-## 20200804
-* fork from [https://github.com/soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)
+## 20200805
+* fork from [songchenwen/nanopi-r2s](https://raw.githubusercontent.com/songchenwen/nanopi-r2s)
+* 加入了 [luci-app-r2sflasher](luci-app-r2sflasher), 可以图形化刷机了。
+* 有了[专为 NanoPi R2S 准备的软件源](https://songchenwen.com/nanopi-r2s-opkg-feeds/packages)。缺少的包可以自行从源里安装了。
 * add extra packages luci-app-smartdns luci-app-advancedsetting luci-app-aliddns luci-app-eqos luci-app-passwall from [kenzok8](https://github.com/kenzok8/openwrt-packages)
+* add back [custom theme](https://github.com/jerrykuku/luci-theme-argon)
+
+## 20200804
+* fork from [soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)
 * change `self-hosted` to `ubuntu-latest`
-* remove [custom theme](https://github.com/jerrykuku/luci-theme-argon)
 
 ## 20200723
 * Docker
