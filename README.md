@@ -1,7 +1,9 @@
 # 使用 Github Actions 在线编译 NanoPi-R2S 固件
 
+[![NanoPi-R2S RK3328 OpenWrt 19.07 Build](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Build%22) 
+
 * NanoPi R2S CNC 官方金属壳版 购买链接: [https://s.click.taobao.com/ZPSFRyu](https://s.click.taobao.com/ZPSFRyu) 
-* This Repo is forked from [https://github.com/soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)
+* This Repo is forked from [soffchen](https://github.com/soffchen/NanoPi-R2S), [klever1988](https://github.com/klever1988/nanopi-openwrt), and [songchenwen](https://github.com/songchenwen/nanopi-r2s)
 
 ## 说明
 * 管理 IP: 192.168.2.1
@@ -18,6 +20,9 @@
 * 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)
 * 集成 [songchenwen/nanopi-r2s/luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher)
 * 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns
+* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, eqos, passwall
+* 加入了 [luci-app-r2sflasher](luci-app-r2sflasher), 可以图形化刷机了。
+* 有了[专为 NanoPi R2S 准备的软件源](https://songchenwen.com/nanopi-r2s-opkg-feeds/packages)。缺少的包可以自行从源里安装了。
 
 ## 用法
 * Fork 到自己的账号下
