@@ -1,3 +1,10 @@
+## 20200806
+* Enable ipv6helper, dhcpv6
+* Use Chunk's Kernel
+* Use lib from openwrt/openwrt
+* Add songchenwen's repo
+* Add luci-app-serverchan
+
 ## 20200805
 * fork from [songchenwen/nanopi-r2s](https://raw.githubusercontent.com/songchenwen/nanopi-r2s)
 * 加入了 [luci-app-r2sflasher](luci-app-r2sflasher), 可以图形化刷机了。
