@@ -52,9 +52,12 @@ jobs:
           git clone https://github.com/coolsnowwolf/lede
           cd friendlywrt
           cp -r ../lede/package/lean package/
+          rm -rf package/network/config/firewall
+          cp -r ../lede/package/network/config/firewall package/network/config/
           sed -i 's/^src-git luci.*/src-git luci https:\/\/github.com\/coolsnowwolf\/luci/' feeds.conf.default
           sed -i 's/^src-git packages.*/src-git packages https:\/\/github.com\/coolsnowwolf\/packages/' feeds.conf.default
           echo "src-git small https://github.com/kenzok8/small" >> feeds.conf.default
+          echo "src-git scw https://github.com/songchenwen/openwrt-package" >> feeds.conf.default
           
       - name: Install Extra Packages
         run: |
@@ -64,7 +67,8 @@ jobs:
           sed -i 's/SUBMENU:=2. Clash/SUBMENU:=3. Applications/' luci-app-clash/Makefile
 
           git clone https://github.com/rufengsuixing/luci-app-adguardhome
-
+          git clone https://github.com/tty228/luci-app-serverchan
+          
           git clone https://github.com/fw876/helloworld
           mv helloworld/luci-app-ssr-plus/ .
           rm -rf helloworld/
@@ -107,7 +111,40 @@ jobs:
 
           mkdir -p usr/share/clash
           echo 1.0.0 > usr/share/clash/core_version
+          
+      - name: Install Openwrt Libs
+        run: |
+          cd friendlywrt-rk3328
+          git clone https://github.com/openwrt/openwrt
+          rm -rf friendlywrt/package/libs
+          cp -r openwrt/package/libs friendlywrt/package/
+          
+      - name: Use Chuck's Kernel
+        run: |
+          cd friendlywrt-rk3328
+          rm -rf kernel
+          git clone --depth=1 https://github.com/fanck0605/friendlywrt-kernel.git kernel
+          cd openwrt
+          ./scripts/patch-kernel.sh ../kernel target/linux/generic/backport-5.4
+          ./scripts/patch-kernel.sh ../kernel target/linux/generic/pending-5.4
+          ./scripts/patch-kernel.sh ../kernel target/linux/generic/hack-5.4
+          ./scripts/patch-kernel.sh ../kernel target/linux/octeontx/patches-5.4
+          cp -a ./target/linux/generic/files/* ../kernel/
+          cd ../kernel
+          wget -O net/netfilter/xt_FULLCONENAT.c https://raw.githubusercontent.com/Chion82/netfilter-full-cone-nat/master/xt_FULLCONENAT.c
+          wget -O ../fullcone_nat.patch https://github.com/fanck0605/nanopi-r2s/raw/openwrt-lienol/patches/001-kernel-add-full_cone_nat.patch
+          git apply ../fullcone_nat.patch
+      
+      # - name: Unlock CPU 1.5Ghz
+      #   run: |
+      #     cd friendlywrt-rk3328/kernel
+      #     wget https://github.com/armbian/build/raw/master/patch/kernel/rockchip64-dev/RK3328-enable-1512mhz-opp.patch
+      #     git apply RK3328-enable-1512mhz-opp.patch
 
+      - name: Install UPX
+        run: |
+          ln -s /usr/bin/upx-ucl friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/upx
+          
       - name: Update Target.mk
         run: |
           cd friendlywrt-rk3328/friendlywrt/include
@@ -136,7 +173,7 @@ jobs:
           sed -i 's/pcdata(boardinfo.system or "?")/"ARMv8"/' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
           sed -i 's/services/vpn/g' friendlywrt/package/feeds/luci/luci-app-openvpn/luasrc/controller/openvpn.lua
           sed -i 's/<%=luci.sys.exec("cat \/etc\/bench.log") or " "%>//' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-          sed -i '/luciversion/a \/ ${{ steps.changelog.outputs.buildtag }} by <a href="https://songchenwen.com">scw</a>' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+          sed -i '/luciversion/a \/ ${{ steps.changelog.outputs.buildtag }} by <a href="https://github.com/02015678/NanoPi-R2S">02015678</a>' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
           sed -i '/firewall\.user/d' friendlywrt/package/lean/default-settings/files/zzz-default-settings
           cp ../scripts/fw_update.sh friendlywrt/package/base-files/files/usr/bin/fw_update
           cp ../scripts/rom_prepare.sh friendlywrt/package/base-files/files/usr/bin/rom_prepare
@@ -162,17 +199,6 @@ jobs:
           rm -rf nanopi-r2s-opkg-feeds
           echo "grep -qF 'songchenwen.com' /etc/opkg/customfeeds.conf || echo 'src/gz songchenwen https://nanopi-r2s-opkg-feeds.songchenwen.com/packages' >> /etc/opkg/customfeeds.conf" >> friendlywrt/package/base-files/files/root/setup.sh
 
-      - name: Patch Kernel
-        run: |
-          cd friendlywrt-rk3328/kernel/
-          git apply ../../patches/001-add-full_cone_nat.patch
-
-      # - name: Unlock CPU 1.5Ghz
-      #   run: |
-      #     cd friendlywrt-rk3328/kernel
-      #     wget https://github.com/armbian/build/raw/master/patch/kernel/rockchip64-dev/RK3328-enable-1512mhz-opp.patch
-      #     git apply RK3328-enable-1512mhz-opp.patch
-    
       - name: Custom Configure Files
         run: |
           rm -f friendlywrt-rk3328/friendlywrt/.config*
@@ -183,10 +209,6 @@ jobs:
           cd friendlywrt-rk3328/friendlywrt
           sed -i '/uci commit luci/i\uci set luci.main.mediaurlbase=/luci-static/argon' package/lean/default-settings/files/zzz-default-settings
            
-      - name: Install UPX
-        run: |
-          ln -s /usr/bin/upx-ucl friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/upx
-
       - name: Build OpenWrt
         run: |
           cd friendlywrt-rk3328
