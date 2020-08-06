@@ -53,8 +53,6 @@ jobs:
           git clone https://github.com/coolsnowwolf/lede
           cd friendlywrt
           cp -r ../lede/package/lean package/
-          rm -rf package/network/config/firewall
-          cp -r ../lede/package/network/config/firewall package/network/config/
           sed -i 's/^src-git luci.*/src-git luci https:\/\/github.com\/coolsnowwolf\/luci/' feeds.conf.default
           sed -i 's/^src-git packages.*/src-git packages https:\/\/github.com\/coolsnowwolf\/packages/' feeds.conf.default
           echo "src-git small https://github.com/kenzok8/small" >> feeds.conf.default
@@ -181,6 +179,15 @@ jobs:
       - name: Install UPX
         run: |
           ln -s /usr/bin/upx-ucl friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/upx
+          
+      - name: Install LUA 5.3
+        run: |
+          ln -s /usr/bin/lua.53 /usr/bin/lua
+          ln -s /usr/bin/lua.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/lua5.3
+          ln -s /usr/bin/lua.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/lua
+          ln -s /usr/bin/luac.53 /usr/bin/luac
+          ln -s /usr/bin/luac.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/luac5.3
+          ln -s /usr/bin/luac.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/luac
           
       - name: Build OpenWrt
         run: |
