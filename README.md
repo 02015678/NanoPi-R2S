@@ -22,10 +22,10 @@
 * 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns
 * 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, eqos, passwall
 * 加入了 [luci-app-r2sflasher](luci-app-r2sflasher), 可以图形化刷机了。
-* 有了[专为 NanoPi R2S 准备的软件源](https://songchenwen.com/nanopi-r2s-opkg-feeds/packages)。缺少的包可以自行从源里安装了。
 
 ## 用法
-* Fork 到自己的账号下
+* 如果只是想下载固件拿去直接用，请点击Actions，找到最近一次成功的编译，下载Artifact栏中的zip包到本机，解压缩再解压缩直到看到img镜像。将img格式镜像刷入TF卡。TF卡如果之前刷过类似系统，建议使用第三方格式化工具将整个优盘所有盘符删除并格式化。（Windows不支持删除优盘的分区表。）
+* 如果你想基于此repo自己加以定制，很好，请先Fork 到自己的账号下
 * 进入 Actions 界面，启用 Github Actions (**必须要先启用**)
 * 编辑文件 `CHANGELOG.md` 即可触发编译动作。
 
