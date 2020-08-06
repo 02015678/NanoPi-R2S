@@ -1,4 +1,7 @@
 ## 20200806
+* Make symbolic link for lua5.3 --> lua in yml flow file
+
+## 20200806
 Since chunk's kernel is no longer maintained, do not use chunk's kernel.
 Since songchenwen's OPKG feed can be added after compilation during daily use, remove feed.
 Since friendlywrt update regularly, no need to copy openwrt/lib
