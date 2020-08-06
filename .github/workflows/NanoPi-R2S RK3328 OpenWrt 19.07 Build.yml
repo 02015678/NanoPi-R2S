@@ -182,11 +182,11 @@ jobs:
           
       - name: Install LUA 5.3
         run: |
-          ln -s /usr/bin/lua.53 /usr/bin/lua
+          sudo ln -s /usr/bin/lua.53 /usr/bin/lua
+          sudo ln -s /usr/bin/luac.53 /usr/bin/luac
           ln -s /usr/bin/lua.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/lua5.3
-          ln -s /usr/bin/lua.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/lua
-          ln -s /usr/bin/luac.53 /usr/bin/luac
           ln -s /usr/bin/luac.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/luac5.3
+          ln -s /usr/bin/lua.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/lua
           ln -s /usr/bin/luac.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/luac
           
       - name: Build OpenWrt
