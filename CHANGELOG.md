@@ -2,7 +2,7 @@
 * ~~Make symbolic link for lua5.3 --> lua in yml flow file~~
 * ~~Correct src-git packages in yml file, specify branch **openwrt-19.07** for [coolsnowwolf/packages](https://github.com/coolsnowwolf/packages)~~
 * Enable luci-app-haproxy-tcp, luci-app-privoxy in config
-* Replace [coolsnowwolf/packages](https://github.com/coolsnowwolf/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) with [openwrt/packages](https://github.com/openwrt/packages), [Lienol/openwrt-luci](https://github.com/Lienol/openwrt-luci)
+* Replace [coolsnowwolf/packages](https://github.com/coolsnowwolf/packages) with [openwrt/packages](https://github.com/openwrt/packages)
 * Replace [kenzok8/small](https://github.com/kenzok8/small) with [xiaorouji/openwrt-package](https://github.com/xiaorouji/openwrt-package)
 
 **Why remove coolsnowwolf src-git?**
