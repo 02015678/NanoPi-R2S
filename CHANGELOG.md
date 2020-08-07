@@ -5,7 +5,7 @@
 * Replace [coolsnowwolf/packages](https://github.com/coolsnowwolf/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) with [openwrt/packages](https://github.com/openwrt/packages), [Lienol/openwrt-luci](https://github.com/Lienol/openwrt-luci)
 * Replace [kenzok8/small](https://github.com/kenzok8/small) with [xiaorouji/openwrt-package](https://github.com/xiaorouji/openwrt-package)
 
-**Why remove coolsnowwolf src-git? **
+**Why remove coolsnowwolf src-git?**
 * master branch of coolsnowwolf/packages/net/haproxy require lua5.3 but it does not provide lua5.3. Good version is on openwrt-19.07 branch instead.
 * openwrt-19.07 branch of coolsnowwolf/packages/utils/coreutils conflict with busybox. ILatest fix on coreutils is on master branch instead.
 
