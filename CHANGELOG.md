@@ -1,3 +1,6 @@
+## 20200808
+* Change libffmpeg-full to libffmpeg-custom. libffmpeg-custom installs both x264 and fdk-aac, while libffmpeg-full cannot let x264 and fdk-aac co-exist.
+
 ## 20200807
 * ~~Make symbolic link for lua5.3 --> lua in yml flow file~~
 * ~~Correct src-git packages in yml file, specify branch **openwrt-19.07** for [coolsnowwolf/packages](https://github.com/coolsnowwolf/packages)~~
