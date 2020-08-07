@@ -1,21 +1,18 @@
 ## 20200807
-* Make symbolic link for lua5.3 --> lua in yml flow file
+* ~~Make symbolic link for lua5.3 --> lua in yml flow file~~
+* Correct src-git packages in yml file, specify branch **openwrt-19.07** for [coolsnowwolf/packages](https://github.com/coolsnowwolf/packages)
+* Enable luci-app-haproxy-tcp in config
 
 ## 20200806
 Since chunk's kernel is no longer maintained, do not use chunk's kernel.
 Since songchenwen's OPKG feed can be added after compilation during daily use, remove feed.
 Since friendlywrt update regularly, no need to copy openwrt/lib
 Change List:
+* Enable ipv6helper, dhcpv6
 * install lua5.3 liblua5.3 during env prepare, it is required by new version haproxy
 * ~~Use Chunk's Kernel~~
 * ~~Use lib from openwrt/openwrt~~
 * ~~Add songchenwen's repo~~
-
-## ~~20200806 (OBSOLETE)~~
-* Enable ipv6helper, dhcpv6
-* Use Chunk's Kernel
-* Use lib from openwrt/openwrt
-* Add songchenwen's repo
 * Add luci-app-serverchan
 
 ## 20200805
