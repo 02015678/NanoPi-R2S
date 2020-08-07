@@ -57,7 +57,7 @@ jobs:
           sed -i '/.*src-git routing.*/d'   feeds.conf.default
           sed -i '/.*src-git telephony.*/d' feeds.conf.default
           sed -i '$a src-git packages   https://github.com/openwrt/packages.git;openwrt-19.07'    feeds.conf.default
-          sed -i '$a src-git luci       https://github.com/Lienol/openwrt-luci.git;dev-19.07'     feeds.conf.default
+          sed -i '$a src-git luci       https://github.com/coolsnowwolf/luci.git;master'     feeds.conf.default
           sed -i '$a src-git routing    https://git.openwrt.org/feed/routing.git;openwrt-19.07'   feeds.conf.default
           sed -i '$a src-git telephony  https://git.openwrt.org/feed/telephony.git;openwrt-19.07' feeds.conf.default
           sed -i '$a src-git lienol     https://github.com/xiaorouji/openwrt-package;master'      feeds.conf.default
