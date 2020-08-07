@@ -26,7 +26,6 @@ jobs:
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk
           sudo docker image prune -a -f
           sudo apt-get -y install upx-ucl unzip
-          sudo apt-get -y install liblua5.3 lua5.3
           sudo apt-get -y purge dotnet* ghc* google* llvm* mysql* php* zulu* firefox hhvm
           sudo apt-get -y autoremove --purge          
           wget -O - https://raw.githubusercontent.com/friendlyarm/build-env-on-ubuntu-bionic/master/install.sh | bash
@@ -53,9 +52,9 @@ jobs:
           git clone https://github.com/coolsnowwolf/lede
           cd friendlywrt
           cp -r ../lede/package/lean package/
-          sed -i 's/^src-git luci.*/src-git luci https:\/\/github.com\/coolsnowwolf\/luci/' feeds.conf.default
-          sed -i 's/^src-git packages.*/src-git packages https:\/\/github.com\/coolsnowwolf\/packages/' feeds.conf.default
-          echo "src-git small https://github.com/kenzok8/small" >> feeds.conf.default
+          sed -i 's/^src-git luci.*/src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;master/' feeds.conf.default
+          sed -i 's/^src-git packages.*/src-git packages https:\/\/github.com\/coolsnowwolf\/packages.git;openwrt-19.07/' feeds.conf.default
+          sed -i '$a src-git small https://github.com/kenzok8/small;master' feeds.conf.default
           
       - name: Install Extra Packages
         run: |
@@ -179,15 +178,6 @@ jobs:
       - name: Install UPX
         run: |
           ln -s /usr/bin/upx-ucl friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/upx
-          
-      - name: Install LUA 5.3
-        run: |
-          sudo ln -s /usr/bin/lua.53 /usr/bin/lua
-          sudo ln -s /usr/bin/luac.53 /usr/bin/luac
-          ln -s /usr/bin/lua.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/lua5.3
-          ln -s /usr/bin/luac.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/luac5.3
-          ln -s /usr/bin/lua.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/lua
-          ln -s /usr/bin/luac.53 friendlywrt-rk3328/friendlywrt/staging_dir/host/bin/luac
           
       - name: Build OpenWrt
         run: |
