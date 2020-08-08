@@ -10,15 +10,21 @@
 * 默认管理密码: password
 
 ## 特色
+可能你会有这样的烦恼，其他的Repo要么是基于Lean的，要么是基于Lieno的，要么有A没有B，要么有B没有A。
+不同于其他Repo倾向于定时自动编译Lean、Lieno大神的固件并分别发布，本Repo希望能提供一个相对单一的ROM，集成更多的插件。
+在编译出一个可供折腾的臃肿FatROM之后，会考虑再编译出几个精简的ThinROM以减小ROM大小、减小功耗和增强稳定性。
+
+以下是FatROM的特性：
 * 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：
     - [COMFAST 726B](https://u.jd.com/KmtGTP)
     - [COMFAST CF-759BF](https://u.jd.com/AiZit7)
 * 集成 [frainzy1477/luci-app-clash](https://github.com/frainzy1477/luci-app-clash) 及其 clash bin（CONFIG_PACKAGE_luci-app-clash 默认没开启）
 * 集成 [vernesong/OpenClash](https://github.com/vernesong/OpenClash) 及其 clash bin
+* 集成 ssr-p1us, passw@1l from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
 * 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)（CONFIG_PACKAGE_luci-app-adguardhome 默认没开启）
-* 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [Lienol/openwrt-luci](https://github.com/Lienol/openwrt-luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)
+* 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)
 * 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)
-* 集成 [songchenwen/nanopi-r2s/luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher)
+* 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher)
 * 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns
 * 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, eqos, passwall
 
@@ -30,13 +36,11 @@
 
 ## 注意
 * 官方代码每天都在变，遇到无法编译时，请前往[soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)查看 `.yml` 与 `config` 最新异动。
-* 自己添加src-git要极为注意，尽量采用openwrt官方源，第三方大神的源确实会有更多插件、Package，但因为更新与官方源不同步可能会有版本冲突。
+* 自己添加src-git要极为注意，小心选择使用的branch，尽量少添加src-git到feed以减少编译时间。
 
 ## 参考
 * [使用Github的Actions功能在线编译NanoPi-R1S固件（包含H5和H3）](https://totoro.site/index.php/archives/70/)
-* [skytotwo/NanoPi-R1S-Build-By-Actions](https://github.com/skytotwo/NanoPi-R1S-Build-By-Actions)
+* [soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)
 * [klever1988/nanopi-openwrt](https://github.com/klever1988/nanopi-openwrt)
-* [yangliu/NanoPi-R2S](https://github.com/yangliu/NanoPi-R2S)
-* [maxming2333/NanoPi-R2S](https://github.com/maxming2333/NanoPi-R2S)
 * [songchenwen/nanopi-r2s](https://github.com/songchenwen/nanopi-r2s)
 * [fanck0605/nanopi_r2s](https://github.com/fanck0605/nanopi_r2s)
