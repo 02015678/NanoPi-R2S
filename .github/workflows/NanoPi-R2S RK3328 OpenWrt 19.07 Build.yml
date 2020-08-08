@@ -9,7 +9,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
 
@@ -214,11 +214,10 @@ jobs:
           #find friendlywrt-rk3328/friendlywrt/bin/targets/rockchip-rk3328/generic -name "openwrt*-squashfs.img" | xargs -I{} sh -c 'f=$(basename $1); zip -r -j "./artifact/${f}.zip" $1' sh {} \;
           
           cp friendlywrt-rk3328/friendlywrt/.config ./artifact/
-          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-passwall*.ipk ./artifact/
-          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-r2sflasher*.ipk ./artifact/
-          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-ssr-plus*.ipk ./artifact/
-          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-clash*.ipk ./artifact/
-          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-openclash*.ipk ./artifact/
+          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-r2sflasher*.ipk ./artifact/   || echo "[WARNING] No luci-app-r2sflasher*.ipk generated"
+          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-passwall*.ipk ./artifact/     || echo "[WARNING] No luci-app-passwall*.ipk generated"
+          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-ssr-plus*.ipk ./artifact/     || echo "[WARNING] No luci-app-ssr-plus*.ipk generated"
+          cp friendlywrt-rk3328/friendlywrt/bin/packages/*/*/luci-app-openclash*.ipk ./artifact/    || echo "[WARNING] No luci-app-openclash*.ipk generated"
 
       - name: Upload Artifact
         uses: actions/upload-artifact@master
