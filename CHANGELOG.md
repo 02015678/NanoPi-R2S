@@ -1,8 +1,8 @@
 ## 20200808
-* ffmpeg=y, libffmpeg-full=y, x264=y, fdk-aac is not set
+* ffmpeg=y, libffmpeg-full=y, fdk-aac=y,  libx264 is not set
 * turn-off switch of coreutils in config file (sort, base64, nohup), turn-on correponding switch of busybox. (coolsnowwolf/package does not fetch latest fix of coreutils/Makefile)
 * switch back to coolsnowwolf/packages src-git
-* copy lua5.3 from coolsnowwolf/lede/package/utils/lua5.3
+* copy lua5.3 from coolsnowwolf/lede/package/utils/lua5.3 to satisfy dependency requirement for new version of haproxy
 
 
 ## 20200807
