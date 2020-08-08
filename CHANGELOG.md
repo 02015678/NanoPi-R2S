@@ -1,5 +1,7 @@
 ## 20200808
 * Change libffmpeg-full to libffmpeg-custom. libffmpeg-custom installs both x264 and fdk-aac, while libffmpeg-full cannot let x264 and fdk-aac co-exist.
+* turn-off switch of coreutils in config file (sort, base64, nohup), turn-on correponding switch of busybox. (coolsnowwolf/package does not fetch latest fix of coreutils/Makefile)
+* switch back to coolsnowwolf/package src-git
 
 ## 20200807
 * ~~Make symbolic link for lua5.3 --> lua in yml flow file~~
@@ -7,10 +9,6 @@
 * Enable luci-app-haproxy-tcp, luci-app-privoxy in config
 * Replace [coolsnowwolf/packages](https://github.com/coolsnowwolf/packages) with [openwrt/packages](https://github.com/openwrt/packages)
 * Replace [kenzok8/small](https://github.com/kenzok8/small) with [xiaorouji/openwrt-package](https://github.com/xiaorouji/openwrt-package)
-
-**Why remove coolsnowwolf src-git?**
-* master branch of coolsnowwolf/packages/net/haproxy require lua5.3 but it does not provide lua5.3. Good version is on openwrt-19.07 branch instead.
-* openwrt-19.07 branch of coolsnowwolf/packages/utils/coreutils conflict with busybox. ILatest fix on coreutils is on master branch instead.
 
 ## 20200806
 Since chunk's kernel is no longer maintained, do not use chunk's kernel.
