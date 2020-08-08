@@ -1,8 +1,9 @@
 ## 20200808
-* Change libffmpeg-full to libffmpeg-custom. libffmpeg-custom installs both x264 and fdk-aac, while libffmpeg-full cannot let x264 and fdk-aac co-exist.
+* ffmpeg=y, libffmpeg-full=y, x264=y, fdk-aac is not set
 * turn-off switch of coreutils in config file (sort, base64, nohup), turn-on correponding switch of busybox. (coolsnowwolf/package does not fetch latest fix of coreutils/Makefile)
 * switch back to coolsnowwolf/packages src-git
 * copy lua5.3 from coolsnowwolf/lede/package/utils/lua5.3
+
 
 ## 20200807
 * ~~Make symbolic link for lua5.3 --> lua in yml flow file~~
