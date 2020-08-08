@@ -52,9 +52,10 @@ jobs:
           git clone https://github.com/coolsnowwolf/lede
           cd friendlywrt
           cp -r ../lede/package/lean package/
+          cp -r ../lede/package/utils/lua5.3 package/utils/
           sed -i '/.*src-git packages.*/d'  feeds.conf.default
           sed -i '/.*src-git luci.*/d'      feeds.conf.default
-          sed -i '$a src-git packages   https://github.com/coolsnowwolf/packages.git;openwrt-19.07'   feeds.conf.default
+          sed -i '$a src-git packages   https://github.com/coolsnowwolf/packages.git;master'   feeds.conf.default
           sed -i '$a src-git luci       https://github.com/coolsnowwolf/luci.git;master'              feeds.conf.default
           sed -i '$a src-git lienol     https://github.com/xiaorouji/openwrt-package;master'          feeds.conf.default
           
