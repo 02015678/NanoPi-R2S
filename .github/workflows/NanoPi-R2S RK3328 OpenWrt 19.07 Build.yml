@@ -144,7 +144,7 @@ jobs:
           sed -i 's/pcdata(boardinfo.system or "?")/"ARMv8"/' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
           sed -i 's/services/vpn/g' friendlywrt/package/feeds/luci/luci-app-openvpn/luasrc/controller/openvpn.lua
           sed -i 's/<%=luci.sys.exec("cat \/etc\/bench.log") or " "%>//' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-          sed -i '/luciversion/a \/ ${{ steps.changelog.outputs.buildtag }} by <a href="https://github.com/02015678/NanoPi-R2S">02015678</a>' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+          sed -i '/luciversion/a \/ by <a href="https://github.com/02015678/NanoPi-R2S">02015678</a>' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
           sed -i '/firewall\.user/d' friendlywrt/package/lean/default-settings/files/zzz-default-settings
           cp ../scripts/fw_update.sh friendlywrt/package/base-files/files/usr/bin/fw_update
           cp ../scripts/rom_prepare.sh friendlywrt/package/base-files/files/usr/bin/rom_prepare
