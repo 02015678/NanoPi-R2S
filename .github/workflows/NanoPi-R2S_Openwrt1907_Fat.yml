@@ -3,7 +3,8 @@ name: NanoPi-R2S RK3328 OpenWrt 19.07 Build
 on:
   push:
     paths:
-      - 'CHANGELOG.md'
+      - 'r2s-rk3328-fat.config'
+      - '.github/workflows/NanoPi-R2S_Openwrt1907_Fat.yml'
 
 jobs:
 
@@ -175,7 +176,7 @@ jobs:
       - name: Custom Configure Files
         run: |
           rm -f friendlywrt-rk3328/friendlywrt/.config*
-          cp r2s-rk3328-config-fat friendlywrt-rk3328/configs/config_rk3328
+          cp r2s-rk3328-fat.config friendlywrt-rk3328/configs/config_rk3328
 
       - name: Set Default Values
         run: |
