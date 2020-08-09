@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'CHANGELOG.md'
+      - '.github/workflows/NanoPi-R2S_Openwrt1907_Fat.yml'
 
 jobs:
 
@@ -79,6 +80,11 @@ jobs:
           git clone -b master https://github.com/vernesong/OpenClash
           mv OpenClash/luci-app-openclash/ .
           rm -rf OpenClash/
+          
+          git clone https://github.com/songchenwen/nanopi-r2s
+          mv nanopi-r2s/luci-app-r2sflasher/ .
+          mv nanopi-r2s/scripts/ ../../..
+          rm -rf nanopi-r2s/          
           
           git clone https://github.com/pymumu/openwrt-smartdns
           git clone https://github.com/pymumu/luci-app-smartdns
