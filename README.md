@@ -1,6 +1,6 @@
 # 使用 Github Actions 在线编译 NanoPi-R2S 固件
 
-[![NanoPi-R2S RK3328 OpenWrt 19.07 Build](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Build%22) 
+[![NanoPi-R2S_Openwrt1907](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Build%22) [![NanoPi-R2S_Openwrt1907_Fat](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Fat%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Fat+Build%22) 
 
 * NanoPi R2S CNC 官方金属壳版 购买链接: [友善电子 FriendArm 官方淘宝店](https://item.taobao.com/item.htm?id=611901481535) 
 * This Repo is forked from [soffchen](https://github.com/soffchen/NanoPi-R2S), [klever1988](https://github.com/klever1988/nanopi-openwrt), and [songchenwen](https://github.com/songchenwen/nanopi-r2s)
