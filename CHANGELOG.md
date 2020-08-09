@@ -1,6 +1,10 @@
-## 20200808
+## 20200809
 * **ROM download available! Goto actions and find artifact section to download.**
 * 本次成功出ROM是集成了尽可能多的插件的目的，先搞定最难的，最容易有冲突的。接下来会考虑出其他几个精简的版本。
+* 有官方源的luci-app-* 将使用官方源
+* 修正了Clash Binary的安装
+
+## 20200808
 * change runs-on from `ubuntu-latest` to `ubuntu-18.04`
 * switch back to coolsnowwolf/packages src-git, branch master (for newer version of ffmpeg and other packages).
 * ffmpeg=y, libffmpeg-full=y, fdk-aac=y,  libx264 is not set. Refer to reported [issue](https://github.com/openwrt/packages/issues/13053).
