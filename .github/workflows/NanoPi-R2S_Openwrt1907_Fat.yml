@@ -3,8 +3,7 @@ name: NanoPi-R2S RK3328 OpenWrt 19.07 Fat Build
 on:
   push:
     paths:
-      - 'r2s-rk3328-fat.config'
-      - '.github/workflows/NanoPi-R2S_Openwrt1907_Fat.yml'
+      - 'CHANGELOG.md'
 
 jobs:
 
@@ -57,8 +56,8 @@ jobs:
           sed -i '/.*src-git packages.*/d'  feeds.conf.default
           sed -i '/.*src-git luci.*/d'      feeds.conf.default
           sed -i '$a src-git packages   https://github.com/coolsnowwolf/packages.git;master'   feeds.conf.default
-          sed -i '$a src-git luci       https://github.com/coolsnowwolf/luci.git;master'              feeds.conf.default
-          sed -i '$a src-git lienol     https://github.com/xiaorouji/openwrt-package;master'          feeds.conf.default
+          sed -i '$a src-git luci       https://github.com/coolsnowwolf/luci.git;master'       feeds.conf.default
+          sed -i '$a src-git xiaorouji  https://github.com/xiaorouji/openwrt-package;master'   feeds.conf.default
           
       - name: Install Extra Packages
         run: |
@@ -81,23 +80,16 @@ jobs:
           mv OpenClash/luci-app-openclash/ .
           rm -rf OpenClash/
           
-          git clone https://github.com/songchenwen/nanopi-r2s
-          mv nanopi-r2s/luci-app-r2sflasher/ .
-          mv nanopi-r2s/scripts/ ../../..
-          rm -rf nanopi-r2s/
+          git clone https://github.com/pymumu/openwrt-smartdns
+          git clone https://github.com/pymumu/luci-app-smartdns
+          mv openwrt-smartdns smartdns
           
-          git clone https://github.com/pymumu/smartdns.git
-          mv smartdns smartdns1
-          mv smartdns1/package/openwrt .
-          mv openwrt smartdns
-          rm -rf smartdns1
-          
+          git clone https://github.com/jerrykuku/node-request.git
+          git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git  
+          git clone https://github.com/honwen/luci-app-aliddns.git
+
           git clone https://github.com/kenzok8/openwrt-packages
-          mv openwrt-packages/luci-app-smartdns/ .
           mv openwrt-packages/luci-app-advancedsetting/ .
-          mv openwrt-packages/luci-app-aliddns/ .
-          mv openwrt-packages/luci-app-eqos/ .
-          mv openwrt-packages/luci-app-passwall/ .
           rm -rf openwrt-packages
           
       - name: Download Clash Binary
