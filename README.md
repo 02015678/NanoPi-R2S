@@ -20,13 +20,14 @@
     - [COMFAST CF-759BF](https://u.jd.com/AiZit7)
 * 集成 [frainzy1477/luci-app-clash](https://github.com/frainzy1477/luci-app-clash) 及其 clash bin（CONFIG_PACKAGE_luci-app-clash 默认没开启）
 * 集成 [vernesong/OpenClash](https://github.com/vernesong/OpenClash) 及其 clash bin
-* 集成 ssr-p1us, passw@1l from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
 * 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)（CONFIG_PACKAGE_luci-app-adguardhome 默认没开启）
 * 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)
 * 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)
 * 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher)
 * 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns
-* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, eqos, passwall
+* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, eqos, ssr-p1us, passw@1l
+* 集成 ssr-p1us, passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
+
 
 ## 用法
 * 如果只是想下载固件拿去直接用，请点击Releases，找到最近一次成功的编译，下载Assets栏中的zip包到本机，解压缩再解压缩直到看到img镜像。将img格式镜像刷入TF卡。TF卡如果之前刷过类似系统，建议使用第三方格式化工具将整个优盘所有盘符删除并格式化。（Windows不支持删除优盘的分区表。）
