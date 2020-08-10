@@ -27,6 +27,7 @@
 * 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns，支持IPv4/IPv6双栈DNS (SmartDNS需配置为dnsmasq上游)，优选返回最快IP地址，防DNS Poisoning
 * 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, ssr-p1us, passw@1l
 * 集成 ssr-p1us, passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
+* 集成 vim-full, nano 文本编辑器，关闭 busybox阉割版vim
 * 以下feature有在Flow中写好，但默认没在config中开启。如有需要，请fork本项目后，修改config文件后再编译
 * 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)（CONFIG_PACKAGE_luci-app-adguardhome 默认没开启）
 * 集成 [frainzy1477/luci-app-clash](https://github.com/frainzy1477/luci-app-clash) 及其 clash bin（CONFIG_PACKAGE_luci-app-clash 默认没开启）
