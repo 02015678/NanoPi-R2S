@@ -38,6 +38,13 @@
 ## 注意
 * 官方代码每天都在变，遇到无法编译时，请前往[soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)查看 `.yml` 与 `config` 最新异动。
 * 自己添加src-git要极为注意，小心选择使用的branch，尽量少添加src-git到feed以减少编译时间。
+* 在防火墙中添加以下自定义规则放行IPv6流量（如果你的网络有IPv6的话）
+```
+# 定义 IPv6 WAN 接口名（Linux）
+iface_linux=pppoe-wan
+# 建立 IPv6 NAT
+ip6tables -t nat -A POSTROUTING -o $iface_linux -j MASQUERADE
+```
 
 ## 参考
 * [使用Github的Actions功能在线编译NanoPi-R1S固件（包含H5和H3）](https://totoro.site/index.php/archives/70/)
