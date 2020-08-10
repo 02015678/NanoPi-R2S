@@ -1,9 +1,11 @@
 # 使用 Github Actions 在线编译 NanoPi-R2S 固件
 
-[![NanoPi-R2S_Openwrt1907](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Build%22) [![NanoPi-R2S_Openwrt1907_Fat](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Fat%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Fat+Build%22) 
+[![NanoPi-R2S_Openwrt1907_Fat](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Fat%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Fat+Build%22) 
 
 * NanoPi R2S CNC 官方金属壳版 购买链接: [友善电子 FriendArm 官方淘宝店](https://item.taobao.com/item.htm?id=611901481535) 
 * This Repo is forked from [soffchen](https://github.com/soffchen/NanoPi-R2S), [klever1988](https://github.com/klever1988/nanopi-openwrt), and [songchenwen](https://github.com/songchenwen/nanopi-r2s)
+
+![FriendlyARM NanoPi R2S](http://wiki.friendlyarm.com/wiki/images/e/e7/NanoPi_R2S_TOP.jpg)
 
 ## 说明
 * 管理 IP: 192.168.2.1
@@ -18,15 +20,17 @@
 * 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：
     - [COMFAST 726B](https://u.jd.com/KmtGTP)
     - [COMFAST CF-759BF](https://u.jd.com/AiZit7)
-* 集成 [frainzy1477/luci-app-clash](https://github.com/frainzy1477/luci-app-clash) 及其 clash bin（CONFIG_PACKAGE_luci-app-clash 默认没开启）
-* 集成 [vernesong/OpenClash](https://github.com/vernesong/OpenClash) 及其 clash bin
-* 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)（CONFIG_PACKAGE_luci-app-adguardhome 默认没开启）
-* 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)
-* 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)
-* 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher)
-* 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns
-* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, eqos, ssr-p1us, passw@1l
+* 集成 [vernesong/OpenClash](https://github.com/vernesong/OpenClash)，其 clash binary 存储到/etc/openclash/core
+* 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)，站在巨人的肩膀上
+* 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)，简介但又耐看的主题
+* 集成 [jerrykuku/luci-app-jd-dailybonus](https://github.com/jerrykuku/luci-app-jd-dailybonus)，签到拿京豆！
+* 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns，支持IPv4/IPv6双栈DNS (SmartDNS需配置为dnsmasq上游)，优选返回最快IP地址，防DNS Poisoning
+* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, ssr-p1us, passw@1l
 * 集成 ssr-p1us, passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
+* 以下feature有在Flow中写好，但默认没在config中开启。如有需要，请fork本项目后，修改config文件后再编译
+* 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)（CONFIG_PACKAGE_luci-app-adguardhome 默认没开启）
+* 集成 [frainzy1477/luci-app-clash](https://github.com/frainzy1477/luci-app-clash) 及其 clash bin（CONFIG_PACKAGE_luci-app-clash 默认没开启）
+* 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher) (CONFIG_PACKAGE_luci-app-r2sflasher 默认没开启)
 
 
 ## 用法
@@ -36,9 +40,9 @@
 * 编辑文件 `CHANGELOG.md` 即可触发编译动作。
 
 ## 注意
-* 官方代码每天都在变，遇到无法编译时，请前往[soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)查看 `.yml` 与 `config` 最新异动。
+* 遇到无法编译时，请参考其他类似repo是怎么写的flow：[soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S), [klever1988](https://github.com/klever1988/nanopi-openwrt), and [songchenwen](https://github.com/songchenwen/nanopi-r2s) 
 * 自己添加src-git要极为注意，小心选择使用的branch，尽量少添加src-git到feed以减少编译时间。
-* 在防火墙中添加以下自定义规则放行IPv6流量（如果你的网络有IPv6的话）
+* 在防火墙中添加以下自定义规则放行IPv6流量（如果你的网络有IPv6的话）（本固件已默认添加以下rule）
 ```
 # 定义 IPv6 WAN 接口名（Linux）
 iface_linux=pppoe-wan
