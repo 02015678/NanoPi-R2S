@@ -107,8 +107,7 @@ jobs:
           wget -qO- https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-armv8.tar.gz | tar xzO > ./openclash/core/clash
           wget -qO- https://github.com/vernesong/OpenClash/releases/download/TUN/clash-linux-armv8.tar.gz | tar xzO > ./openclash/core/clash_game
           wget -qO- https://github.com/vernesong/OpenClash/releases/download/TUN-Premium/clash-linux-armv8-2020.07.28.ge8f69b1.gz | gunzip -c > ./openclash/core/clash_tun
-          chown root:root ./openclash/core/clash ./openclash/core/clash_tun ./openclash/core/clash_game
-          chmod ugo+x ./openclash/core/clash ./openclash/core/clash_tun ./openclash/core/clash_game
+          chmod +x ./openclash/core/clash ./openclash/core/clash_tun ./openclash/core/clash_game
           ln -s openclash clash
           
       - name: Fix IPv6 ip6tables Firewall 
