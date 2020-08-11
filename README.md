@@ -1,6 +1,7 @@
 # 使用 Github Actions 在线编译 NanoPi-R2S 固件
 
 [![NanoPi-R2S_Openwrt1907_Fat](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Fat%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Fat+Build%22) 
+[![NanoPi-R2S_Openwrt1907_Thin](https://github.com/02015678/NanoPi-R2S/workflows/NanoPi-R2S%20RK3328%20OpenWrt%2019.07%20Thin%20Build/badge.svg)](https://github.com/02015678/NanoPi-R2S/actions?query=workflow%3A%22NanoPi-R2S+RK3328+OpenWrt+19.07+Thin+Build%22) 
 
 * NanoPi R2S CNC 官方金属壳版 购买链接: [友善电子 FriendArm 官方淘宝店](https://item.taobao.com/item.htm?id=611901481535) 
 * This Repo is forked from [soffchen](https://github.com/soffchen/NanoPi-R2S), [klever1988](https://github.com/klever1988/nanopi-openwrt), and [songchenwen](https://github.com/songchenwen/nanopi-r2s)
@@ -8,15 +9,15 @@
 ![FriendlyARM NanoPi R2S](http://wiki.friendlyarm.com/wiki/images/e/e7/NanoPi_R2S_TOP.jpg)
 
 ## 说明
+* 请根据需要选择使用更多插件功能的Fat ROM，或者仅包含必备插件功能的Thin ROM。
 * 管理 IP: 192.168.2.1
 * 默认管理密码: password
 
-## 特色
+## Fat ROM 特色
 可能你会有这样的烦恼，其他的Repo要么是基于Lean的，要么是基于Lieno的，要么有A没有B，要么有B没有A。
 不同于其他Repo倾向于定时自动编译Lean、Lieno大神的固件并分别发布，本Repo希望能提供单一入口的ROM，集成更多的插件。
-在编译出一个可供折腾的臃肿FatROM之后，会考虑再编译出几个精简的ThinROM以减小ROM大小、减小功耗和增强稳定性。
 
-以下是FatROM的特性：
+以下是Fat ROM的特性：
 * 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：
     - [COMFAST 726B](https://u.jd.com/KmtGTP)
     - [COMFAST CF-759BF](https://u.jd.com/AiZit7)
@@ -33,6 +34,18 @@
 * 集成 [frainzy1477/luci-app-clash](https://github.com/frainzy1477/luci-app-clash) 及其 clash bin（CONFIG_PACKAGE_luci-app-clash 默认没开启）
 * 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher) (CONFIG_PACKAGE_luci-app-r2sflasher 默认没开启)
 
+## Thin ROM 特色
+你已经厌倦了Openwrt里的一堆插件，我的要求很简单，默认内置最常用的就行了。其他可以自己去装，OK，那么Thin ROM将会是你的选择。
+
+以下是Thin ROM的特性：
+* 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：
+    - [COMFAST 726B](https://u.jd.com/KmtGTP)
+    - [COMFAST CF-759BF](https://u.jd.com/AiZit7)
+* 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)，站在巨人的肩膀上
+* 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)，简介但又耐看的主题
+* 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns，支持IPv4/IPv6双栈DNS (SmartDNS需配置为dnsmasq上游)，优选返回最快IP地址，防DNS Poisoning
+* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, passw@1l
+* 集成 passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
 
 ## 用法
 * 如果只是想下载固件拿去直接用，请点击Releases，找到最近一次成功的编译，下载Assets栏中的zip包到本机，解压缩再解压缩直到看到img镜像。将img格式镜像刷入TF卡。TF卡如果之前刷过类似系统，建议使用第三方格式化工具将整个优盘所有盘符删除并格式化。（Windows不支持删除优盘的分区表。）
