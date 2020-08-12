@@ -31,9 +31,6 @@ jobs:
           sudo apt-get -y autoremove --purge          
           wget -O - https://raw.githubusercontent.com/friendlyarm/build-env-on-ubuntu-bionic/master/install.sh | bash
 
-      #- name: Setup Debug Session
-      #  uses: P3TERX/debugger-action@master
-  
       - name: Install Repo
         run: |
           git clone https://github.com/friendlyarm/repo
@@ -105,11 +102,10 @@ jobs:
           cd friendlywrt-rk3328/friendlywrt/package/base-files/files/etc
           wget -qO- https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-armv8.tar.gz | tar xzO > ./openclash/core/clash
           wget -qO- https://github.com/vernesong/OpenClash/releases/download/TUN/clash-linux-armv8.tar.gz | tar xzO > ./openclash/core/clash_game
-          wget -qO- https://github.com/vernesong/OpenClash/releases/download/TUN-Premium/clash-linux-armv8-2020.07.28.ge8f69b1.gz | gunzip -c > ./openclash/core/clash_tun
-          chmod +x ./openclash/core/clash ./openclash/core/clash_tun ./openclash/core/clash_game
+          chmod +x ./openclash/core/clash ./openclash/core/clash_game
           ln -s openclash clash
           
-      - name: Fix IPv6 ip6tables Firewall 
+      - name: Fix IPv6 Firewall (ip6tables)
         run: |
           cd friendlywrt-rk3328/friendlywrt/package/base-files/files/etc
           if [ -f firewall.user ]; then
