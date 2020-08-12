@@ -1,8 +1,12 @@
+## 20200813
+* Now Thin ROM is available for advanced users. Thin ROM only reserve fundamental features, i.e. a network router which can access global internet.
+* luci-app-r2sflasher added to Fat ROM
+
 ## 20200809
 * **ROM download available! Goto actions and find artifact section to download.**
-* 本次成功出ROM是集成了尽可能多的插件的目的，先搞定最难的，最容易有冲突的。接下来会考虑出其他几个精简的版本。
-* 有官方源的luci-app-* 将使用官方源
-* 修正了Clash Binary的安装
+* Fat ROM is for users who want to test at many features as possible.
+* Fix sources of some luci-app-*
+* Install OpenClash instead of Clash. Fix Openclash binary installation.
 
 ## 20200808
 * change runs-on from `ubuntu-latest` to `ubuntu-18.04`
