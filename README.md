@@ -29,10 +29,11 @@
 * 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, ssr-p1us, passw@1l
 * 集成 ssr-p1us, passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
 * 集成 vim-full, nano 文本编辑器，关闭 busybox阉割版vim
+* 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher) (CONFIG_PACKAGE_luci-app-r2sflasher 默认没开启)
 * 以下feature有在Flow中写好，但默认没在config中开启。如有需要，请fork本项目后，修改config文件后再编译
 * 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)（CONFIG_PACKAGE_luci-app-adguardhome 默认没开启）
 * 集成 [frainzy1477/luci-app-clash](https://github.com/frainzy1477/luci-app-clash) 及其 clash bin（CONFIG_PACKAGE_luci-app-clash 默认没开启）
-* 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher) (CONFIG_PACKAGE_luci-app-r2sflasher 默认没开启)
+* Openvpn, IPsec, ZeroTier，uHTTPd, udpxy, HAProxy, NPS, FRP, ServerChan, Docker, 挂载点， TTYD， 磁盘自动休眠
 
 ## Thin ROM 特色
 你已经厌倦了Openwrt里的一堆插件，我的要求很简单，默认内置最常用的就行了。其他可以自己去装，OK，那么Thin ROM将会是你的选择。
@@ -46,6 +47,7 @@
 * 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns，支持IPv4/IPv6双栈DNS (SmartDNS需配置为dnsmasq上游)，优选返回最快IP地址，防DNS Poisoning
 * 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, passw@1l
 * 集成 passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
+* ServerChan, 挂载点， TTYD， 磁盘自动休眠
 
 ## 用法
 * 如果只是想下载固件拿去直接用，请点击Releases，找到最近一次成功的编译，下载Assets栏中的zip包到本机，解压缩再解压缩直到看到img镜像。将img格式镜像刷入TF卡。TF卡如果之前刷过类似系统，建议使用第三方格式化工具将整个优盘所有盘符删除并格式化。（Windows不支持删除优盘的分区表。）
