@@ -18,9 +18,7 @@
 不同于其他Repo倾向于定时自动编译Lean、Lieno大神的固件并分别发布，本Repo希望能提供单一入口的ROM，集成更多的插件。
 
 以下是Fat ROM的特性：
-* 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：
-    - [COMFAST 726B](https://u.jd.com/KmtGTP)
-    - [COMFAST CF-759BF](https://u.jd.com/AiZit7)
+* 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：[COMFAST 726B](https://u.jd.com/KmtGTP), [COMFAST CF-759BF](https://u.jd.com/AiZit7)
 * 集成 [vernesong/OpenClash](https://github.com/vernesong/OpenClash)，其 clash binary 存储到/etc/openclash/core
 * 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)，站在巨人的肩膀上
 * 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)，简介但又耐看的主题
@@ -30,18 +28,14 @@
 * 集成 ssr-p1us, passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
 * 集成 vim-full, nano 文本编辑器，关闭 busybox阉割版vim
 * 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher)
-* 以下feature有在Flow中写好，但默认没在config中开启。如有需要，请fork本项目后，修改config文件后再编译
-* 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)（CONFIG_PACKAGE_luci-app-adguardhome 默认没开启）
-* 集成 [frainzy1477/luci-app-clash](https://github.com/frainzy1477/luci-app-clash) 及其 clash bin（CONFIG_PACKAGE_luci-app-clash 默认没开启）
+* 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)
 * Openvpn, IPsec, ZeroTier，uHTTPd, udpxy, HAProxy, NPS, FRP, ServerChan, Docker, 挂载点， TTYD， 磁盘自动休眠
 
 ## Thin ROM 特色
 你已经厌倦了Openwrt里的一堆插件，我的要求很简单，默认内置最常用的就行了。其他可以自己去装，OK，那么Thin ROM将会是你的选择。
 
 以下是Thin ROM的特性：
-* 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：
-    - [COMFAST 726B](https://u.jd.com/KmtGTP)
-    - [COMFAST CF-759BF](https://u.jd.com/AiZit7)
+* 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：[COMFAST 726B](https://u.jd.com/KmtGTP), [COMFAST CF-759BF](https://u.jd.com/AiZit7)
 * 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)，站在巨人的肩膀上
 * 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)，简介但又耐看的主题
 * 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns，支持IPv4/IPv6双栈DNS (SmartDNS需配置为dnsmasq上游)，优选返回最快IP地址，防DNS Poisoning
