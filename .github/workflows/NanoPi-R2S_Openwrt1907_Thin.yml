@@ -3,7 +3,6 @@ name: NanoPi-R2S RK3328 OpenWrt 19.07 Thin Build
 on:
   push:
     paths:
-      - 'CHANGELOG.md'
       - '.github/workflows/NanoPi-R2S_Openwrt1907_Thin.yml'
 
 jobs:
@@ -83,8 +82,7 @@ jobs:
           mv nanopi-r2s/scripts/ ../../..
           rm -rf nanopi-r2s/          
           
-          git clone https://github.com/pymumu/openwrt-smartdns
-          mv openwrt-smartdns smartdns
+          git clone https://github.com/pymumu/openwrt-smartdns ./smartdns
           
           git clone https://github.com/jerrykuku/node-request.git
           git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git  
@@ -94,6 +92,10 @@ jobs:
           mv openwrt-packages/luci-app-advancedsetting/ .
           mv openwrt-packages/luci-app-smartdns/ .
           rm -rf openwrt-packages
+          
+          git clone -b master https://github.com/pexcn/openwrt-chinadns-ng ./chinadns-ng
+          git clone -b luci https://github.com/pexcn/openwrt-chinadns-ng ./luci-app-chinadns-ng
+          sed -i 's/CATEGORY/a\\tSUBMENU:=3. Applications' ./luci-app-chinadns-ng/Makefile
           
 #     - name: Download OpenClash Binary
 #       run: |
@@ -106,13 +108,13 @@ jobs:
 #         chmod +x ./openclash/core/clash ./openclash/core/clash_tun ./openclash/core/clash_game
 #         ln -s openclash clash
           
-      - name: Fix IPv6 ip6tables Firewall 
-        run: |
-          cd friendlywrt-rk3328/friendlywrt/package/base-files/files/etc
-          if [ -f firewall.user ]; then
-              echo "iface_linux=pppoe-wan"                                          >> firewall.user
-              echo "ip6tables -t nat -A POSTROUTING -o $iface_linux -j MASQUERADE"  >> firewall.user
-          fi
+#     - name: Fix IPv6 ip6tables Firewall 
+#       run: |
+#         cd friendlywrt-rk3328/friendlywrt/package/base-files/files/etc
+#         if [ -f firewall.user ]; then
+#             echo "iface_linux=pppoe-wan"                                          >> firewall.user
+#             echo "ip6tables -t nat -A POSTROUTING -o $iface_linux -j MASQUERADE"  >> firewall.user
+#         fi
           
       - name: Update Target.mk
         run: |
