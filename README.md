@@ -23,8 +23,9 @@
 * 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)，站在巨人的肩膀上
 * 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)，简介但又耐看的主题
 * 集成 [jerrykuku/luci-app-jd-dailybonus](https://github.com/jerrykuku/luci-app-jd-dailybonus)，签到拿京豆！
-* 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns，支持IPv4/IPv6双栈DNS (SmartDNS需配置为dnsmasq上游)，优选返回最快IP地址，防DNS Poisoning
-* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, ssr-p1us, passw@1l
+* 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns
+* 集成 [pexcn/openwrt-chinadns-ng](https://github.com/pexcn/openwrt-chinadns-ng) 与 luci-app-chinadns-ng
+* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, aliddns, 酸酸乳、怕死我
 * 集成 ssr-p1us, passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
 * 集成 vim-full, nano 文本编辑器，关闭 busybox阉割版vim
 * 集成 [luci-app-r2sflasher](https://github.com/songchenwen/nanopi-r2s/tree/master/luci-app-r2sflasher)
@@ -38,9 +39,11 @@
 * 支持 RTL8821CU/RTL8822BU 芯片的 USB WiFi 设备，已知支持列表：[COMFAST 726B](https://u.jd.com/KmtGTP), [COMFAST CF-759BF](https://u.jd.com/AiZit7)
 * 集成 [xiaorouji/packages](https://github.com/xiaorouji/packages), [coolsnowwolf/luci](https://github.com/coolsnowwolf/luci) 与 [coolsnowwolf/lede/package/lean](https://github.com/coolsnowwolf/lede/tree/master/package/lean)，站在巨人的肩膀上
 * 更新 [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)，简介但又耐看的主题
-* 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns，支持IPv4/IPv6双栈DNS (SmartDNS需配置为dnsmasq上游)，优选返回最快IP地址，防DNS Poisoning
-* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, passw@1l
+* 集成 [pymumu/smartdns](https://github.com/pymumu/smartdns) 与 luci-app-smartdns
+* 集成 [pexcn/openwrt-chinadns-ng](https://github.com/pexcn/openwrt-chinadns-ng) 与 luci-app-chinadns-ng
+* 集成 [kenzok8/openwrt-packages](https://github.com/kenzok8/openwrt-packages)的advancedsetting, 怕死我
 * 集成 passw@1l 的依赖关系 from [xiaorouji/packages](https://github.com/xiaorouji/packages) 
+* 集成 [rufengsuixing/luci-app-adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)
 * ServerChan, 挂载点， TTYD， 磁盘自动休眠
 
 ## 用法
@@ -52,7 +55,7 @@
 ## 注意
 * 遇到无法编译时，请参考其他类似repo是怎么写的flow：[soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S), [klever1988](https://github.com/klever1988/nanopi-openwrt), and [songchenwen](https://github.com/songchenwen/nanopi-r2s) 
 * 自己添加src-git要极为注意，小心选择使用的branch，尽量少添加src-git到feed以减少编译时间。
-* 在防火墙中添加以下自定义规则放行IPv6流量（如果你的网络有IPv6的话）（本固件已默认添加以下rule）
+* 在防火墙中添加以下自定义规则放行IPv6流量（如果你的网络有IPv6的话）
 ```
 # 定义 IPv6 WAN 接口名（Linux）
 iface_linux=pppoe-wan
