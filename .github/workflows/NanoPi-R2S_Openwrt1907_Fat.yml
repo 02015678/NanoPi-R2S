@@ -95,7 +95,7 @@ jobs:
           
           git clone -b master https://github.com/pexcn/openwrt-chinadns-ng ./chinadns-ng
           git clone -b luci https://github.com/pexcn/openwrt-chinadns-ng ./luci-app-chinadns-ng
-          sed -i 's/CATEGORY/a\\tSUBMENU:=3. Applications' ./luci-app-chinadns-ng/Makefile
+          sed -i '/CATEGORY/a\\tSUBMENU:=3. Applications' ./luci-app-chinadns-ng/Makefile
           
       - name: Download OpenClash Binary
         run: |
