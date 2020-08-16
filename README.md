@@ -68,6 +68,7 @@ ip6tables -t nat -A POSTROUTING -o $iface_linux -j MASQUERADE
 建议关闭系统自带dnsmasq，使用AdguardHome作为主DNS服务器，其上游服务器为ChinaDNS-NG。
 ChinaDNS-NG对DNS请求进行高效的分流，境内域名转交上游SmartDNS第一端口，境外域名转交上游SmartDNS第二端口。
 最后在SmartDNS中配置境内上游服务器和境外上游服务器，境外服务器请一律使用DNS over TLS或者DNS over HTTPS连接。
+SmartDNS第一端口，开启速度优选(返回最快IP)、双栈优选、黑名单过滤；SMartDNS第二端口，关闭速度优选(返回全部IP)，IPv6强制SOA。
 
 这套方案境内域名解析非常快，且EDNS可以有效帮你找到最快的服务器；境外域名直送境外DNS，利用DOT、DOH保证结果可采信。
 
