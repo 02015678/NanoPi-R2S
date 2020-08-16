@@ -62,6 +62,26 @@ iface_linux=pppoe-wan
 # 建立 IPv6 NAT
 ip6tables -t nat -A POSTROUTING -o $iface_linux -j MASQUERADE
 ```
+## 关于DNS
+参见：https://www.cnblogs.com/zlAurora/p/12433266.html
+
+建议关闭系统自带dnsmasq，使用AdguardHome作为主DNS服务器，其上游服务器为ChinaDNS-NG。
+ChinaDNS-NG对DNS请求进行高效的分流，境内域名转交上游SmartDNS第一端口，境外域名转交上游SmartDNS第二端口。
+最后在SmartDNS中配置境内上游服务器和境外上游服务器，境外服务器请一律使用DNS over TLS或者DNS over HTTPS连接。
+
+这套方案境内域名解析非常快，且EDNS可以有效帮你找到最快的服务器；境外域名直送境外DNS，利用DOT、DOH保证结果可采信。
+
+- 推荐使用的境内DNS服务器：腾讯DNSPOD (119.29.29.29)、阿里巴巴(223.5.5.5)、百度(180.76.76.76)，以及运营商的DNS服务器
+- 不建议使用境内DNS服务器：CNNIC (1.2.4.8)、南京信风 (114.114.114.114)
+- 推荐使用的境外DNS服务器：Google (8.8.8.8), CloudFlare (1.1.1.1), IBM (9.9.9.9)
+- 不建议使用境外DNS服务器：OpenDNS
+
+推荐的理由相信不用多说，那么不推荐的理由：
+- CNNIC：嗯有黑历史，其数字证书被Google、Mozilla Firefox和Microsoft通通撤销信任了
+- 南京信风：优点是IP太好记了，但其实响应速度没有腾讯阿里快，可靠性也略逊一筹
+- OpenDNS：这个真的佛了，拿不到正确的结果，即使你用DOH。
+
+配置好这套系统后，注意其他自带DNS分流代理之类的插件，就不要开启类似功能了，避免冲突。
 
 ## 参考
 * [使用Github的Actions功能在线编译NanoPi-R1S固件（包含H5和H3）](https://totoro.site/index.php/archives/70/)
