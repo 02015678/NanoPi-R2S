@@ -9,7 +9,7 @@
 
 ## 写在最前面的话
 本repo是基于友善电子官方的源代码，加上部分来自lean和lienol的包组成的。因为友善电子官方的固件比较大，所以固件最后img file都会有超过900MB。
-鉴于Openwrt已经于7月28日官方支持NanoPi-R2S，因此现在建议直接使用基于官方Openwrt的固件，请移步[02015678/R2S-OpenWrt](https://github.com/02015678/R2S-OpenWrt)。
+鉴于Openwrt已经于2020年7月28日官方支持NanoPi-R2S，因此现在建议直接使用基于官方Openwrt的固件，请移步[02015678/R2S-OpenWrt](https://github.com/02015678/R2S-OpenWrt)。
 基于官方Openwrt的固件，更新更快(跟随Openwrt主线更新)、体积更小(img仅100MB出头)、维护的人更多(直接受惠于Openwrt主线)。有鉴于此，基于友善电子源代码的本repo不再维护。
 
 ## 说明
