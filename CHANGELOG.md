@@ -1,3 +1,7 @@
+## 20200824
+* Last compilation, this repo will be archived and no longer maintained. Please go to new repo [02015678/R2S-OpenWrt](https://github.com/02015678/R2S-OpenWrt).
+* [New repo](https://github.com/02015678/R2S-OpenWrt) is based on official Openwrt, since Openwrt mainstream officially support R2S starting from Jul 28, 2020.
+
 ## 20200813
 * Now Thin ROM is available for advanced users. Thin ROM only reserve fundamental features, i.e. a network router which can access global internet.
 * luci-app-r2sflasher added to Fat ROM
