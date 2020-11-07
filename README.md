@@ -5,12 +5,7 @@
 
 * NanoPi R2S CNC 官方金属壳版 购买链接: [友善电子 FriendArm 官方淘宝店](https://item.taobao.com/item.htm?id=611901481535) 
 * This Repo is forked from [soffchen](https://github.com/soffchen/NanoPi-R2S), [klever1988](https://github.com/klever1988/nanopi-openwrt), and [songchenwen](https://github.com/songchenwen/nanopi-r2s)
-
-
-## 写在最前面的话
-本repo是基于友善电子官方的源代码，加上部分来自lean和lienol的包组成的。因为友善电子官方的固件比较大(压缩后140MB-200MB)。
-鉴于Openwrt已经于2020年7月28日官方支持NanoPi-R2S，因此现在建议直接使用基于官方Openwrt的固件，请移步[02015678/R2S-OpenWrt](https://github.com/02015678/R2S-OpenWrt)。
-基于官方Openwrt的固件，更新更快(跟随Openwrt主线更新)、体积更小(压缩后仅50MB出头)、维护的人更多(直接受惠于Openwrt主线)。有鉴于此，基于友善电子源代码的本repo不再维护。
+* 推荐朗科 32G TF 卡 ￥17.90 购买链接: [https://u.jd.com/1mAGW7](https://u.jd.com/1mAGW7)
 
 ## 说明
 * 请根据需要选择使用更多插件功能的Fat ROM，或者仅包含必备插件功能的Thin ROM。
