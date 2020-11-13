@@ -1,4 +1,9 @@
+## 20201114
+
+* Remove privoxy
+
 ## 20200824
+
 * Last compilation, this repo will be archived and no longer maintained. Please go to new repo [02015678/R2S-OpenWrt](https://github.com/02015678/R2S-OpenWrt).
 * [New repo](https://github.com/02015678/R2S-OpenWrt) is based on official Openwrt, since Openwrt mainstream officially support R2S starting from Jul 28, 2020.
 

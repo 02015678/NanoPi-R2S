@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/NanoPi-R2S_Openwrt1907_Thin.yml'
+      - 'r2s-rk3328-thin.config'
       - 'CHANGELOG.md'
 
 jobs:
